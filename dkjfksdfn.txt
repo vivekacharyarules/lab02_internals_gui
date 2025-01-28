@@ -1,0 +1,444 @@
+1
+
+cd Desktop/
+
+mkdir devops
+
+cd devops/
+
+git init
+
+touch test.txt
+
+git add .
+
+git commit -m "Initial commit"
+
+git config --global user.name "name"
+git config --global user.email "mail@gmail.com"
+
+
+git branch b1
+
+git checkout b1
+
+touch test2.txt
+
+gti add .
+
+
+
+ls
+
+git checkout master 
+
+git merge b1
+
+
+*********************************************************************************************************************
+
+Program 2
+
+$ git clone https://github.com/Mahi2708/sample-programs.git
+$ cd sample-programs/
+$ cat README.md
+$ nano README.md
+$ git add .
+$git commit -m  "committed2"
+$ git push origin master/main
+
+*********************************************************************************************************************
+
+Program 3
+
+.github/workflows/actions.yaml
+
+
+name: My First GitHub Actions
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9]
+
+    steps: 
+
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v2   
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+
+    - name: Run tests
+      run: |
+        cd src
+        python -m pytest addition.py
+
+
+A.
+src/addition.py
+
+def add(a,b):
+  return a+b
+
+def test_add():
+  assert add(1,2) == 3
+  assert add(1,-1) == 0
+
+git init
+git status
+git add .
+git commit -m "First commit"
+paste that link in …or create a new repository on the command line(in ur git hub acc)
+
+git push -u origin main/ master
+
+got to settings>runner>windows 
+$ mkdir actions-runner; cd actions-runner
+
+
+curl -L -o actions-runner-win-x64-2.321.0.zip https://github.com/actions/runner/releases/download/v2.321.0/actions-runner-win-x64-2.321.0.zip
+
+unzip actions-runner-win-x64-2.321.0.zip
+
+./config.cmd --url https://github.com/anahhgha/mira --token BM4XPWLIUWQU2H4UROPP52LHS4FV6
+
+in github account>actions >first commit>view workflow
+
+*********************************************************************************************************************
+Program 4
+
+docker pull nginx
+docker pull busybox
+
+docker run -d -p 8080:80 nginx
+
+docker run busybox
+
+docker run busybox echo hello
+
+docker --version
+docker images 
+docker pull redis
+docker images
+docker ps
+docker run --privileged redis
+docker ps
+docker exec -it <cid> sh
+docker stop <cid>
+docker rm <cid>
+docker rmi<iid>
+
+
+*********************************************************************************************************************
+
+Program 5:
+
+html folder 
+index.html -----------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample Web App</title>
+</head>
+<body>
+    <h1>Welcome to the Sample Web Application!</h1>
+    <p>This is a basic HTML and JavaScript application running in a Docker container.</p>
+    <script>
+        console.log('Hello from JavaScript!');
+    </script>
+</body>
+</html>
+
+Dockerfile -------------------------------------------------------------
+
+FROM nginx:alpine
+COPY html /usr/share/nginx/html
+EXPOSE 80
+CMD 
+docker build -t my-server .
+docker run -d -p 8080:80 my-server
+
+docker ps
+docker-machine ip
+browser - ip:8080
+
+https://drive.google.com/drive/folders/1AfDRJo-sFQxXQIb8LtyLJUMzaTlBjQmm?usp=sharing
+
+
+*********************************************************************************************************************
+
+
+
+
+*********************************************************************************************************************
+
+LINK TO EXEC VIDEOS
+
+https://drive.google.com/drive/folders/1Mlv6bHOMOlL5Pxihe0NaCjQpvbLynflp
+
+*********************************************************************************************************************
+Program 6:
+
+download jdk 17
+download jenkins msi file		(port 8080)
+download sonarqube zip file 		(port 9000)
+
+
+go to localhost 8080 and setup admin user
+
+manage jenkins -> plugins -> download SonarQube Scanner plugin
+
+extract sonarqube zip file -> go to bin -> windows-x86-64 0 -> open terminlal there 
+
+
+*********************************************************************************************************************
+
+in terminal : .\StartSonar.bat -> go to localhost 9000 (id and pwd is "admin)
+
+create local project -> add lab6 -> use global setting (localhost 9000)
+
+analysis method -> locally -> generate token (id : lab6)  (localhost 9000)
+
+
+*********************************************************************************************************************
+Â
+
+go to localhost 8080  -> manage jenkins -> credentials -> secret text -> copy paste the token with the id (lab6)
+
+go to localhost 8080  -> manage jenkins -> system -> Add SonarQube -> name : sonarqube and select authentication token from dropdown
+
+go to localhost 8080 -> tools -> SonarQube Scanner installations -> install automatically -> save
+
+*********************************************************************************************************************
+
+
+go to localhost 8080 -> new item -> lab6 -> freestyle project -> source : git -> main branch specify in 8080 ->click on prepare sonarqube env and select token
+
+
+https://github.com/sunny-shaw/retail-store.git
+
+
+*********************************************************************************************************************
+
+-> add build step -> add "execute sonarqub scanner"  
+
+
+Analysis properties:
+
+sonar.projectKey=retail-store-jenkins-project
+sonar.projectName=retail-store-jenkins-project
+sonar.projectVersion=1.0
+sonar.language=java
+sonar.tests=src/test/java
+sonar.sources=src/main/java
+
+
+save -> build now -> console output
+
+
+*********************************************************************************************************************
+
+Program 7:
+
+
+download jdk 17
+download jenkins msi file		(port 8080)
+download apache maven
+
+
+go to localhost 8080 -> plugins -> install
+
+"Maven integration plugin"
+"Pipeline Maven integration plugin"
+
+go to localhost 8080 -> tools -> Maven installations -> add maven path (eg : D:\misc\.....)
+
+go to localhost 8080 -> new item -> lab7 -> pipeline project -> add pipeline script -> check video for pipeline code
+
+
+   
+
+save -> build now
+
+*********************************************************************************************************************
+
+
+
+1)
+
+Perform version control using git/github – install git, create
+Github account, initialize git repository, make commits, creating
+and merging branches (using CLI/GUI).
+
+Step 1: Create Github account
+Step 2: Initialize git repository
+• Create new repository on Github, with repository name
+• Or use command:
+$ git init
+Step 3: Create files and commit changes
+• Click on create new file, add text and commit changes
+• CLI commands:
+$ notepad file1.txt
+$ git add .
+$ git commit -m “Added file1.txt”
+Step 4: Create new branch and add files
+• Click on create new file, add text and select create new
+branch, commit changes
+• CLI commands:
+$ git branch new-branch
+$ git checkout new-branch
+$ notepad file2.txt
+$ git add .
+$ git commit -m “Added file2.txt in new-branch”
+Step 5: Merge the branches
+• Click on create new pull request in Github and confirm merge
+• CLI commands:
+$ git merge new-branch
+Step 6: Push changes to remote repository
+$ git remote add origin <url>
+$ git push -u origin master
+
+2)    To perform version control using github integration and
+collaboration – Push local commits to github and manage pull
+requests, fork a repository make changes to forked repo and merge
+the changes(using CLI/GUI).
+
+Step 1: Create git repository and add files
+• Click on New repository, add files and commit changes
+• CLI commands:
+$ git init
+$ git remote add origin <url>
+$ git notepad file1.txt
+$ git commit -m “Added file1.txt”
+$ git push -u origin master
+Step 2: Fork the repository from a different Github account
+• Go to the git url, click on Fork repository
+• Add files in the forked repository and commit changes
+• CLI commands:
+$ git clone <url>
+$ notepad file2.txt
+$ git add .
+$ git commit -m “Added file2.txt in forked repo”
+$ git push origin master
+Step 3: Create pull request from forked repository
+• From the forked repository, click on Create new pull request
+• Add description and click on create pull request
+Step 4: Accept pull request in the main repository
+• Go to the main repository from the original github account
+• In Pull requests, click on the pull request
+• Click on Merge pull request and Confirm merge
+
+
+3)
+Creation of YAML files to define workflow configuration in github
+repository for CI/CD pipelining.
+
+Step 1: Create git repository and add python code
+• Click on New repository, give repository name and create
+• Click on New file and write the following python code:
+def add(a,b):
+return a+b
+def test_add():
+assert add(1,2)==3
+assert add(2,2)==4
+
+Step 2: Write the following YAML code in workflows directory:
+name: First GitHub Actions # Name of the GitHub Actions workflow.
+on: [push]
+jobs:
+build:
+runs-on: ubuntu-latest
+strategy:
+matrix:
+python-version: [3.8, 3.9]
+steps:
+- uses: actions/checkout@v2
+- name: Setting up Python
+uses: actions/setup-python@v2
+with:
+python-version: ${{ matrix.python-version }}
+- name: Installing all the dependencies
+run: |
+python -m pip install --upgrade pip
+pip install pytest
+- name: Running tests
+run: python -m pytest addition.py
+
+Step 3: Commit changes and push changes to remote repository
+$ git init
+$ notepad addition.py
+$ git add .
+$ $ git init
+$ notepad addition.py
+$ git add .
+$ git commit -m “First commit”
+$ git remote add origin <url>
+
+$ git push -u origin master
+Step 4: Add Runner action
+• Click on Settings->Actions->Runners
+• Click on New self-hosted runner
+• Create actions-runner directory and extract runner zip
+• Configure runner using the commands
+• Commands:
+$ mkdir actions-runner
+$ cd actions-runner
+$ curl -o <action-runner.zip> -L <url>
+$ unzip action-runner.zip
+$ ./config.cmd --url <url> --token <token>
+Step 5: Verify the runner jobs
+• Click on Actions
+• Click on three dots, in the menu click View workflow file
+• Verify the build and test jobs
+
+
+*************************************
+
+git init
+git status
+git add .
+git commit -m "First commit"
+paste that link in …or create a new repository on the command line(in ur git hub acc)
+
+git push -u origin main/ master
+
+got to settings>runner>windows
+$ mkdir actions-runner; cd actions-runner
+
+
+curl -L -o actions-runner-win-x64-2.321.0.zip https://github.com/actions/runner/releases/download/v2.321.0/actions-runner-win-x64-2.321.0.zip
+
+unzip actions-runner-win-x64-2.321.0.zip
+
+./config.cmd --url https://github.com/anahhgha/mira --token BM4XPWLIUWQU2H4UROPP52LHS4FV6
+
+in github account>actions >first commit>view workflow
+
+
+Google drive link for executing program videos
+
+
+
+https://drive.google.com/drive/folders/1Mlv6bHOMOlL5Pxihe0NaCjQpvbLynflp
+
+https://drive.google.com/drive/folders/1AfDRJo-sFQxXQIb8LtyLJUMzaTlBjQmm?usp=sharing 
+
+
+
+
+
+
+
+ 
